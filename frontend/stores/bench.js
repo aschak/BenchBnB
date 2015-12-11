@@ -13,7 +13,7 @@ window.BenchStore = BenchStore;
 
 BenchStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case ACTION:
+    case BENCHES_RECEIVED:
 
       break;
 
