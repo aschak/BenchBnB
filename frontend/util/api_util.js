@@ -1,3 +1,5 @@
+var ApiActions = require('../actions/api_actions.js');
+
 ApiUtil = {
   fetchBenches: function () {
     $.ajax({
@@ -11,7 +13,6 @@ ApiUtil = {
 }
 
 
-
-window.ApiUtil = ApiUtil;
+// window.ApiUtil = ApiUtil;
 
 module.exports = ApiUtil;

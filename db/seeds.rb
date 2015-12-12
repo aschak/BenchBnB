@@ -8,8 +8,17 @@
 
 coordinates = []
 
-10.times do
+15.times do
   latitude = rand((37.6)..(37.8))
   longitude = rand((122.4)..(122.5))
   coordinates.push([latitude, longitude])
+end
+
+10.times do
+  coordinate = coordinates.shift
+  Bench.create!(
+    description: "Basic Bench",
+    lat: coordinate[0],
+    lng: coordinate[1]
+  )
 end
