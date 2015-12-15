@@ -13,7 +13,7 @@ var Index = React.createClass({
 
   componentDidMount: function () {
     this.benchListener = BenchStore.addListener(this._onChange);
-    ApiUtil.fetchBenches();
+    // ApiUtil.fetchBenches();
   },
 
   componentWillUnmount: function () {
@@ -21,27 +21,23 @@ var Index = React.createClass({
   },
 
   render: function () {
-    var benches = this.state.benches
+    var benches = this.state.benches;
     return (
       <ul>
         {
-          benches.map(function (bench) {
-            return <li>
+          benches.map(function (bench, idx) {
+            return <li key={idx}>
               Bench Description: {bench.description}
               <br/>
               <br/>
-              Lat: {bench.lat}
-              <br/>
-              Long: {bench.lng}
-              <br/>
-              <br/>
-            </li>
+              Coordinates: {bench.lat}, {bench.lng}
+            </li>;
           })
         }
       </ul>
-    )
+    );
   }
-})
+});
 
 
 

@@ -1,7 +1,9 @@
 class Api::BenchesController < ApplicationController
 
   def index
-    @benches = Bench.all
+    @benches = Bench.all.select {
+      |bench| Bench.bounded?(params['bounds'], bench)
+    }
   end
 
 

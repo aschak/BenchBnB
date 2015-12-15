@@ -9,8 +9,8 @@
 coordinates = []
 
 15.times do
-  latitude = rand((37.6)..(37.8))
-  longitude = rand((122.4)..(122.5))
+  latitude = rand((37.7)..(37.8))
+  longitude = rand((122.4)..(122.5)) * (-1)
   coordinates.push([latitude, longitude])
 end
 

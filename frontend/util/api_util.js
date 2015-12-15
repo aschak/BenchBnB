@@ -1,16 +1,17 @@
 var ApiActions = require('../actions/api_actions.js');
 
-ApiUtil = {
-  fetchBenches: function () {
+var ApiUtil = {
+  fetchBenches: function (bounds) {
     $.ajax({
       url: 'api/benches',
       type: 'GET',
+      data: {bounds: bounds},
       success: function (benches) {
-        ApiActions.receiveAllBenches(benches)
+        ApiActions.receiveAllBenches(benches);
       }
     });
   }
-}
+};
 
 
 // window.ApiUtil = ApiUtil;
