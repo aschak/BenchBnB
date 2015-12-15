@@ -20,7 +20,6 @@ var Map = React.createClass({
         title: "Basic Bench"
       }));
     }.bind(this));
-    console.log(this.markers);
   },
 
   componentDidMount: function () {
@@ -48,6 +47,7 @@ var Map = React.createClass({
 
       if (lat < bounds.getSouthWest().lat() || lat > bounds.getNorthEast().lat()
         || lng < bounds.getSouthWest().lng() || lng > bounds.getNorthEast().lat() ) {
+
           deleted.push(marker);
       }
     });

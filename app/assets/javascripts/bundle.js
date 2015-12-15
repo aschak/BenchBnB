@@ -46,6 +46,7 @@
 
 	var React = __webpack_require__(1),
 	    ReactDOM = __webpack_require__(158),
+	    ReactRouter = __webpack_require__(184),
 	    BenchStore = __webpack_require__(159),
 	    ApiUtil = __webpack_require__(181);
 	
@@ -55,15 +56,40 @@
 	    Route = __webpack_require__(184).Route,
 	    IndexRoute = __webpack_require__(184).IndexRoute;
 	
-	var App = __webpack_require__(233);
+	var App = React.createClass({
+	  displayName: 'App',
 	
-	window.BenchStore = BenchStore;
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'header',
+	        null,
+	        React.createElement(
+	          'h1',
+	          null,
+	          ' Bench BnB'
+	        )
+	      ),
+	      this.props.children
+	    );
+	  }
+	});
 	
-	var routes = React.createElement(Route, { path: '/', component: App });
+	var routes = React.createElement(
+	  Route,
+	  { path: '/', component: App },
+	  React.createElement(IndexRoute, { component: Search })
+	);
 	
 	document.addEventListener('DOMContentLoaded', function () {
-	  var root = document.querySelector('#content');
-	  ReactDOM.render(React.createElement(Search, null), document.getElementById('content'));
+	  var root = document.getElementById('content');
+	  ReactDOM.render(React.createElement(
+	    Router,
+	    null,
+	    routes
+	  ), root);
 	});
 
 /***/ },
@@ -30917,32 +30943,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var App = React.createClass({
-	  displayName: 'App',
-	
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      null,
-	      'HOWDY'
-	    );
-	  }
-	});
-	
-	module.exports = App;
-
-/***/ },
+/* 233 */,
 /* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    Map = __webpack_require__(235),
-	    Index = __webpack_require__(183);
+	    Index = __webpack_require__(183),
+	    BenchForm = __webpack_require__(236);
 	
 	var Search = React.createClass({
 	  displayName: 'Search',
@@ -30985,7 +30993,6 @@
 	        title: "Basic Bench"
 	      }));
 	    }).bind(this));
-	    console.log(this.markers);
 	  },
 	
 	  componentDidMount: function () {
@@ -31012,6 +31019,7 @@
 	      var lng = marker.position.lng();
 	
 	      if (lat < bounds.getSouthWest().lat() || lat > bounds.getNorthEast().lat() || lng < bounds.getSouthWest().lng() || lng > bounds.getNorthEast().lat()) {
+	
 	        deleted.push(marker);
 	      }
 	    });
@@ -31041,6 +31049,13 @@
 	});
 	
 	module.exports = Map;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    BenchStore = __webpack_require__(159);
 
 /***/ }
 /******/ ]);

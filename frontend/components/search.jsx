@@ -1,6 +1,7 @@
 var React = require('react'),
     Map = require('./map.jsx'),
-    Index = require('./index.jsx');
+    Index = require('./index.jsx'),
+    BenchForm = require('./benchform.jsx');
 
 
 var Search = React.createClass({
